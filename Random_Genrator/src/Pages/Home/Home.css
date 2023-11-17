@@ -1,0 +1,77 @@
+
+.homepage>div:first-of-type{
+    margin-top: 80px;
+    padding: 20px;
+    width: 60vw;
+    margin-left: 17%;
+    box-shadow: 0px 0px 20px 1px #fff;
+    border-radius: 15px;
+    text-align: center; 
+}
+.homepage>div .headingtext{
+    font-size: 35px;
+    /* text-shadow: 5px 1px 5px  #9bc3ff; */
+}
+.homepage>div .headingtext1{
+    font-size: 50px;
+}
+
+.homepage>.container2{
+    margin-top: 80px;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+.homepage>.container2>.timeDate{
+    /* margin-top: 50px; */
+    padding: 40px;
+    padding-bottom: 20px;
+    box-shadow: 0px 0px 20px 1px #fff;
+    border-radius: 15px;
+    text-align: center;
+    height: 300px;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.homepage>.container2>.timeDate .Date{
+    font-size: 30px;
+}
+.homepage>.container2>.timeDate .Time{
+    font-size: 40px;
+}
+.homepage>.container2>.links{
+    /* margin-top: 80px; */
+    /* padding: 20px; */
+    /* border: 1px solid white; */
+    display: flex;
+    gap: 35px;
+}
+.homepage>.container2>.links>div{
+    box-shadow: 0px 0px 10px 1px #fff;
+    border-radius: 15px;
+    display: flex;
+    width: 200px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    font-size: 25px;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+.homepage>.container2>.links>div:hover{
+    background: #fff;
+    color: #000;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px 1px #fff;
+}
+
+.homepage>.container2>.links>div>h4{
+    text-align: center;
+}
+.homepage>.container2>.links>div>img{
+    width: 80%;
+}
