@@ -1,14 +1,29 @@
 import "./Home.css";
 import {useState} from 'react'
-import img1 from '../../assets/img1.png'
-import img2 from '../../assets/img2.png'
+import img1 from "../../assets/img1.png";
+import img2 from "../../assets/img2.png";
+
+const links = [
+  {
+    h4: "Click to get motivated",
+    img: img1,
+    onclick: "routeToQuotes()",
+  },
+  {
+    h4: "Click to Laugh",
+    img: img2,
+    onclick: "RouteToJokes()",
+  }
+] 
+
 const Home = () => {
     const time = new Date();
     const [sec,setSec] = useState(time.getSeconds());
 
     setInterval(() => {
-        setSec(time.getSeconds())
-    }, 1000);
+        setSec(sec+1);
+    }
+    )
 
     const addZero = (num) => {
         if(num<10){
@@ -17,9 +32,14 @@ const Home = () => {
         else{
             return num;
         }
+      }
+    const routeToQuotes = () => {
+        window.location.pathname = "/quotes";
+
     }
-
-
+    const RouteToJokes = () => {
+        window.location.pathname = "/jokes";
+    }
 
     return (
     <>
@@ -39,14 +59,17 @@ const Home = () => {
                 <h2 className="Time"><span>{addZero(time.getHours())} : </span><span>{addZero(time.getMinutes())} : </span><span>{addZero(time.getSeconds())}</span></h2>
             </div>
             <div className="links">
-                <div>
-                    <h4>Click to get motivated</h4>
-                    <img src={img1} alt="" srcset="" />
-                </div>
-                <div>
-                    <h4>Click to Laugh</h4>
-                    <img src={img2} alt="" srcset="" />
-                </div>
+              {
+                links.map((val,ind)=>{
+                  return 
+                  (
+                    <div key ={ind} onclick={val.onclick}>
+                      <h4>{val.h4}</h4>
+                      <img>{val.img}</img>
+                    </div>
+                  )
+                })
+              }
             </div>
         </div>
       </div>
