@@ -64,13 +64,20 @@
 }
 .homepage>.container2>.links>div:hover{
     background: #fff;
-    color: #000;
+    color: #000  !important;
     transform: scale(1.1);
     box-shadow: 0px 0px 20px 1px #fff;
 }
 
-.homepage>.container2>.links>div>h4{
+.homepage>.container2>.links>div>.linktogo{
     text-align: center;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+}
+.homepage>.container2>.links>div>.linktogo:hover{
+    color: #000;
+    text-decoration: none;
 }
 .homepage>.container2>.links>div>img{
     width: 80%;

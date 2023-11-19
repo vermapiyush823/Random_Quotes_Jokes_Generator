@@ -1,28 +1,31 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import './Quotes.css'
 
-let ind = 0;
 const Quotes = () => {
+    const [data, setData] = useState([]);
+    const [quoteIndex, setQuoteIndex] = useState(0);
 
-    const generateRandomQuote =()=>{
-        axios.get('https://type.fit/api/quotes').then((resp)=>{
-            setData(resp.data)
-        })
-        ind+1;
-    }
-    const [data,setData] = useState(null);
-    useEffect(()=>{
+    const generateRandomQuote = () => {
+        axios.get('https://type.fit/api/quotes').then((resp) => {
+            setData(resp.data);
+            setQuoteIndex(Math.floor(Math.random() * resp.data.length));
+        });
+    };
+
+    useEffect(() => {
         generateRandomQuote();
-    },[" "]);
-    const info = data[0];
+    }, []);
+
     return (
+        <div className="Quotes">
             <div>
-                {/* <h2>{data[0].text}</h2> */}
-                <h2>{info?.text}</h2>
-        <h3>{info?.author}</h3>
+            <h2>{data[quoteIndex]?.text}</h2>
+            <h3>{data[quoteIndex]?.author.split(',')}</h3>
+            </div>
             <button onClick={generateRandomQuote}>Generate</button>
         </div>
-    )
-}
+    );
+};
 
-export default Quotes
+export default Quotes;

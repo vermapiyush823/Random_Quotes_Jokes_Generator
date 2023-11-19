@@ -2,19 +2,8 @@ import "./Home.css";
 import {useState} from 'react'
 import img1 from "../../assets/img1.png";
 import img2 from "../../assets/img2.png";
+import { Link } from "react-router-dom";
 
-const links = [
-  {
-    h4: "Click to get motivated",
-    img: img1,
-    onclick: "routeToQuotes()",
-  },
-  {
-    h4: "Click to Laugh",
-    img: img2,
-    onclick: "RouteToJokes()",
-  }
-] 
 
 const Home = () => {
     const time = new Date();
@@ -34,13 +23,25 @@ const Home = () => {
         }
       }
     const routeToQuotes = () => {
-        window.location.pathname = "/quotes";
+      window.location.href = "/quotes";
 
     }
-    const RouteToJokes = () => {
-        window.location.pathname = "/jokes";
+    const routeToJokes = () => {
+      window.location.href = "/jokes";
     }
-
+    
+const links = [
+  {
+    h4: "Click to get motivated",
+    img: img1,
+    onclick: "/quotes",
+  },
+  {
+    h4: "Click to Laugh",
+    img: img2,
+    onclick: "/jokes",
+  }
+] 
     return (
     <>
       <div className="homepage">
@@ -61,13 +62,11 @@ const Home = () => {
             <div className="links">
               {
                 links.map((val,ind)=>{
-                  return 
-                  (
-                    <div key ={ind} onclick={val.onclick}>
-                      <h4>{val.h4}</h4>
-                      <img>{val.img}</img>
-                    </div>
-                  )
+                  return (
+                  <div className="link" key={ind}>
+                  <Link className="linktogo" to={val.onclick} >{val.h4}</Link>
+                    <img src={val.img} alt="" />
+                    </div>)
                 })
               }
             </div>
